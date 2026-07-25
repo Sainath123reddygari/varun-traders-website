@@ -32,7 +32,7 @@ export default function Hero() {
             market value.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <div className="mt-0 flex flex-col sm:flex-row gap-4">
             <Link
               href="#products"
               className="bg-green-600 hover:bg-green-700 px-8 py-4 rounded-xl text-white text-lg font-semibold transition"
