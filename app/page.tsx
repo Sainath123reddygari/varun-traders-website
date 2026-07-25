@@ -21,7 +21,7 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="pt-20">
+      <main className="pt-0">
         <Hero />
         <About />
         <Products />
