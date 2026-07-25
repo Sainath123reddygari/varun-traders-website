@@ -13,8 +13,8 @@ export default function Navbar() {
         <nav className="hidden md:flex gap-8 font-medium">
           <Link href="/">Home</Link>
           <Link href="/products">Products</Link>
-          <Link href="/dealer">Become Dealer</Link>
-          <Link href="/contact">Contact</Link>
+          <a href="#dealer">Become Dealer</a>
+          <a href="#contact">Contact</a>
         </nav>
 
         <a

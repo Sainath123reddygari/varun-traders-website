@@ -28,7 +28,10 @@ export default function DealerEnquiry() {
   }
 
   return (
-    <section className="bg-green-700 text-white py-16 rounded-2xl my-16">
+    <section
+      id="dealer"
+      className="bg-green-700 text-white py-16 rounded-2xl my-16"
+    >
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-4xl font-bold mb-4">
           Become Our Dealer / Distributor
