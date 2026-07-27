@@ -10,14 +10,6 @@ import RelatedProducts from "@/components/RelatedProducts";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export async function generateStaticParams() {
-  const products = await getAllProducts();
-
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
-}
-
 export default async function ProductPage({
   params,
 }: {
