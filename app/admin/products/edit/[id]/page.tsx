@@ -65,7 +65,9 @@ export default function EditProductPage() {
     }
 
   alert("Product updated successfully!");
-  router.push("/products");
+
+  router.refresh();
+  router.push(`/admin/products/${slug}`);
 }
 
   if (loading) {

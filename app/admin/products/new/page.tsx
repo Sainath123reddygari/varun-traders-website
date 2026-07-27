@@ -27,13 +27,34 @@ export default function AddProductPage() {
       const fileName = `${uuidv4()}-${imageFile.name}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("product-images")
-        .upload(fileName, imageFile);
+  .from("product-images")
+  .upload(fileName, imageFile);
 
-      if (uploadError) {
-        setLoading(false);
-        alert(uploadError.message);
-        return;
+console.log(uploadError);
+
+if (uploadError) {
+  alert("UPLOAD ERROR: " + uploadError.message);
+  return;
+}
+
+      const { error } = await supabase
+        .from("products")
+        .insert([
+          {
+            name,
+            slug,
+            category,
+            description,
+            image_url: uploadedImageUrl,
+            specs,
+            brochure: "",
+          },
+        ]);
+
+      console.log(error);
+
+      if (error) {
+       alert("DATABASE ERROR: " + error.message);
       }
 
       const { data } = supabase.storage

@@ -20,6 +20,8 @@ export default async function ProductPage({
 
   const product = await getProductBySlug(slug);
 
+  console.log("SERVER PRODUCT:", product);
+
   if (!product) {
     notFound();
   }
