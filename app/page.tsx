@@ -24,7 +24,6 @@ export default function Home() {
       <main className="pt-0">
         <Hero />
         <About />
-        <Products />
         <WhyChooseUs />
         <Process />
         <Stats />

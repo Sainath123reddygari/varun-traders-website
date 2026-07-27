@@ -6,7 +6,7 @@ export async function getAllProducts() {
     .select("*")
     .order("created_at", { ascending: false });
 
-  console.log("Products:", data);
+  console.log("Public website products:", data);
   console.log("Error:", error);
 
   if (error) {
