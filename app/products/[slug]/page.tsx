@@ -8,6 +8,7 @@ import { getProductBySlug, getAllProducts } from "@/lib/products";
 import RelatedProducts from "@/components/RelatedProducts";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const products = await getAllProducts();
