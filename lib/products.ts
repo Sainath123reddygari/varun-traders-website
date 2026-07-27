@@ -1,13 +1,12 @@
-import { supabase } from "@/lib/supabase";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export async function getAllProducts() {
+  const supabase = await createSupabaseServerClient();
+
   const { data, error } = await supabase
     .from("products")
     .select("*")
     .order("created_at", { ascending: false });
-
-  console.log("Public website products:", data);
-  console.log("Error:", error);
 
   if (error) {
     console.error(error);
@@ -21,11 +20,13 @@ export async function getAllProducts() {
       typeof product.specs === "string"
         ? JSON.parse(product.specs || "[]")
         : product.specs ?? [],
-        brochure: product.brochure ?? "",
-      }));
-    }
+    brochure: product.brochure ?? "",
+  }));
+}
 
 export async function getProductBySlug(slug: string) {
+  const supabase = await createSupabaseServerClient();
+
   const { data, error } = await supabase
     .from("products")
     .select("*")
