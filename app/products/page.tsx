@@ -26,7 +26,7 @@ export default async function ProductsPage() {
           </p>
         </div>
 
-        <ProductSearch products={products} />
+        <ProductSearch products={products ?? []} />
 
       </div>
     </main>

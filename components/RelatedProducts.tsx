@@ -11,9 +11,9 @@ export default async function RelatedProducts({
 }: RelatedProductsProps) {
   const allProducts = await getAllProducts();
 
-  const products = allProducts
+  const relatedProducts = allProducts
     .filter((product) => product.slug !== currentSlug)
-    .slice(0, 3);
+    .slice(0, 4);
 
   return (
     <section className="py-12">
@@ -22,7 +22,7 @@ export default async function RelatedProducts({
       </h2>
 
       <div className="grid md:grid-cols-3 gap-6">
-        {products.map((product) => (
+        {relatedProducts.map((product) => (
           <Link
             key={product.slug}
             href={`/products/${product.slug}`}

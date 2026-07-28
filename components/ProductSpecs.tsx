@@ -9,31 +9,48 @@ interface ProductSpecsProps {
 
 export default function ProductSpecs({ specs }: ProductSpecsProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8">
-      <h2 className="text-3xl font-bold text-green-700 mb-6">
+    <section className="bg-white rounded-2xl shadow-lg p-8">
+
+      <h2 className="text-3xl font-bold text-green-700 mb-8">
         Product Specifications
       </h2>
 
-      <div className="space-y-4">
-        {(specs || []).map((spec) => (
-          <div
-            key={spec.title}
-            className="flex items-center gap-3 border-b pb-3"
-          >
-            <CheckCircle className="text-green-600" size={22} />
+      <div className="overflow-hidden rounded-xl border">
 
-            <div>
-              <p className="font-semibold text-gray-800">
-                {spec.title}
-              </p>
+        <table className="w-full">
 
-              <p className="text-gray-600">
-                {spec.value}
-              </p>
-            </div>
-          </div>
-        ))}
+          <tbody>
+            {(specs || []).map((spec) => (
+              <tr
+                key={spec.title}
+                className="border-b last:border-b-0 hover:bg-green-50 transition"
+              >
+
+                <td className="p-5 flex items-center gap-3 font-semibold text-gray-800">
+
+                  <CheckCircle
+                    className="text-green-600 flex-shrink-0"
+                    size={22}
+                  />
+
+                  {spec.title}
+
+                </td>
+
+
+                <td className="p-5 text-gray-600">
+                  {spec.value}
+                </td>
+
+              </tr>
+            ))}
+
+          </tbody>
+
+        </table>
+
       </div>
-    </div>
+
+    </section>
   );
 }

@@ -28,7 +28,7 @@ export default async function AdminDashboard() {
           >
             <h2 className="text-xl font-bold">📦 Products</h2>
             <p className="text-3xl font-bold mt-4">
-              {products.length}
+              {products?.length}
             </p>
             <p className="text-green-700 mt-2">
               Manage Products →
@@ -72,7 +72,7 @@ export default async function AdminDashboard() {
             </h2>
 
             <div className="space-y-3">
-              {products.slice(0, 5).map((product) => (
+              {products?.slice(0, 5).map((product) => (
                 <div
                   key={product.id}
                   className="flex justify-between border-b pb-2"

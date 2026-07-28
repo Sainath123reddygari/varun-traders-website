@@ -25,13 +25,13 @@ export default async function FeaturedProducts() {
           </p>
         </div>
 
-        {products.length === 0 ? (
+        {products?.length === 0 ? (
           <p className="text-center text-gray-500">
             No products available.
           </p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {products.map((product) => (
+            {products?.map((product) => (
               <Link
                 key={product.id}
                 href={`/products/${product.slug}`}

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 interface ProductGalleryProps {
   images: string[];
@@ -10,39 +12,72 @@ interface ProductGalleryProps {
 export default function ProductGallery({
   images,
 }: ProductGalleryProps) {
-  const [selectedImage, setSelectedImage] = useState(images?.[0] || "/placeholder.png"
-);
+
+  const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  if (!images || images.length === 0) {
+    return null;
+  }
 
   return (
     <div>
+
       {/* Main Image */}
-      <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-lg">
+      <div
+        className="cursor-pointer overflow-hidden rounded-xl"
+        onClick={() => setOpen(true)}
+      >
         <Image
-          src={selectedImage}
-          alt="Product"
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
+          src={images[index]}
+          alt="Product image"
+          width={700}
+          height={700}
+          className="w-full object-cover hover:scale-105 transition"
         />
       </div>
 
+
       {/* Thumbnails */}
-      <div className="grid grid-cols-3 gap-4 mt-4">
-        {(images || []).map((img) => (
+      <div className="flex gap-3 mt-4 overflow-x-auto">
+
+        {images.map((img, i) => (
           <button
-            key={img}
-            onClick={() => setSelectedImage(img)}
-            className="relative h-28 rounded-xl overflow-hidden border-2 hover:border-green-600"
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`border rounded-lg p-1 ${
+              index === i
+                ? "border-green-600"
+                : "border-gray-200"
+            }`}
           >
+
             <Image
               src={img}
-              alt="Thumbnail"
-              fill
-              className="object-cover"
+              alt={`thumbnail ${i}`}
+              width={80}
+              height={80}
+              className="rounded object-cover"
             />
+
           </button>
         ))}
+
       </div>
+
+
+      {/* Zoom Viewer */}
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={index}
+        slides={
+          images.map((src)=>({
+            src
+          }))
+        }
+      />
+
     </div>
   );
 }

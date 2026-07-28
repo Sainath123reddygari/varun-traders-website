@@ -9,6 +9,7 @@ export async function getAllProducts() {
     .order("created_at", { ascending: false });
 
   if (error) {
+    console.error("Product fetch error:", error.message);
     console.error(error);
     return [];
   }
