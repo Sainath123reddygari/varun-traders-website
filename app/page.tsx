@@ -15,6 +15,10 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import DealerEnquiry from "@/components/DealerEnquiry";
+import TrustedSection from "@/components/TrustedSection";
+import HowItWorks from "@/components/HowItWorks";
+import AboutSection from "@/components/AboutSection";
+import ContactCTA from "@/components/ContactCTA";
 
 export default function Home() {
   return (
@@ -23,12 +27,16 @@ export default function Home() {
 
       <main className="pt-0">
         <Hero />
+        <TrustedSection />
         <About />
         <WhyChooseUs />
+        <HowItWorks />
+        <AboutSection />
         <Process />
         <Stats />
         <Gallery />
         <Testimonials />
+        <ContactCTA />
         <FAQ />
         <Contact />
         <FeaturedProducts />

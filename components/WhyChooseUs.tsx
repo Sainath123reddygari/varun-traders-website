@@ -1,58 +1,78 @@
-"use client";
-
 export default function WhyChooseUs() {
   const features = [
     {
+      icon: "🛡️",
+      title: "Superior Protection",
+      desc: "Protects fruits from insects, birds, dust and harsh weather.",
+    },
+    {
+      icon: "🌿",
       title: "100% Biodegradable",
-      description: "Eco-friendly fruit protection covers that are safe for the environment.",
-      icon: "🌱",
+      desc: "Eco-friendly paper that naturally decomposes without harming the environment.",
     },
     {
-      title: "Premium Quality",
-      description: "Manufactured using high-quality materials for long-lasting protection.",
+      icon: "💧",
+      title: "Water Resistant",
+      desc: "Designed to withstand rain and moisture while maintaining airflow.",
+    },
+    {
       icon: "⭐",
+      title: "Premium Quality",
+      desc: "Made with high-quality 45 GSM paper for long-lasting performance.",
     },
     {
-      title: "Trusted by Farmers",
-      description: "Helping farmers improve fruit quality and increase market value.",
+      icon: "📈",
+      title: "Higher Market Value",
+      desc: "Cleaner, healthier fruits help farmers achieve better selling prices.",
+    },
+    {
       icon: "🤝",
-    },
-    {
-      title: "Direct Manufacturer",
-      description: "Competitive pricing with reliable customer support.",
-      icon: "🏭",
+      title: "Farmer Support",
+      desc: "Dedicated support before and after every purchase.",
     },
   ];
 
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-green-700">
-          Why Choose Varun Traders?
-        </h2>
 
-        <p className="text-center text-gray-600 mt-4 max-w-2xl mx-auto">
-          We provide premium fruit protection solutions designed to help farmers
-          produce healthier fruits with better market value.
-        </p>
+        <div className="text-center mb-16">
+          <span className="text-green-700 uppercase tracking-widest font-semibold">
+            Why Choose Us
+          </span>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <h2 className="text-4xl md:text-5xl font-bold mt-3">
+            Why Farmers Trust Varun Traders
+          </h2>
+
+          <p className="mt-5 max-w-3xl mx-auto text-gray-600 text-lg">
+            We manufacture premium biodegradable fruit protection covers
+            designed to improve fruit quality while reducing losses caused by
+            pests and environmental damage.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-2xl transition"
+              className="rounded-3xl border border-gray-100 bg-gray-50 p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="text-5xl mb-4">{feature.icon}</div>
+              <div className="text-5xl mb-6">
+                {feature.icon}
+              </div>
 
-              <h3 className="text-xl font-bold text-green-700">
+              <h3 className="text-2xl font-bold text-green-700">
                 {feature.title}
               </h3>
 
-              <p className="text-gray-600 mt-3">
-                {feature.description}
+              <p className="mt-4 text-gray-600 leading-7">
+                {feature.desc}
               </p>
             </div>
           ))}
+
         </div>
       </div>
     </section>
