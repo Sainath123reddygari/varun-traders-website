@@ -1,28 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import FadeIn from "./FadeIn";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "What fruits are these covers suitable for?",
+    question: "Which fruits can use these protection covers?",
     answer:
-      "Our covers are suitable for guava, pomegranate, banana, mango, and many other fruits.",
+      "Our covers are suitable for banana, mango, guava, pomegranate and many other fruit crops.",
   },
   {
-    question: "Are the covers eco-friendly?",
+    question: "Are the covers biodegradable?",
     answer:
-      "Yes. We offer biodegradable fruit protection covers made from quality materials.",
+      "Yes. They are made from eco-friendly biodegradable paper that naturally decomposes.",
   },
   {
-    question: "Do you accept bulk orders?",
+    question: "Do they protect against insects and birds?",
     answer:
-      "Yes. We supply farmers, dealers, distributors, and agricultural businesses across India.",
+      "Yes. They help reduce damage from fruit flies, insects, birds, dust and harsh weather.",
   },
   {
-    question: "Can I request custom sizes?",
+    question: "Can I place bulk orders?",
     answer:
-      "Yes. Custom sizes and specifications are available for bulk orders.",
+      "Absolutely. We supply both small and bulk quantities for farmers, dealers and distributors.",
   },
 ];
 
@@ -30,39 +30,45 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <FadeIn>
-      <section id="faq" className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-green-700">
+    <section className="py-24 bg-white">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <span className="text-green-700 uppercase tracking-widest font-semibold">
+            FAQ
+          </span>
+
+          <h2 className="text-4xl md:text-5xl font-bold mt-3">
             Frequently Asked Questions
           </h2>
-
-          <div className="mt-12 space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={faq.question}
-                className="rounded-xl bg-white shadow"
-              >
-                <button
-                  onClick={() =>
-                    setOpen(open === index ? null : index)
-                  }
-                  className="w-full text-left p-5 font-semibold flex justify-between"
-                >
-                  {faq.question}
-                  <span>{open === index ? "−" : "+"}</span>
-                </button>
-
-                {open === index && (
-                  <div className="px-5 pb-5 text-gray-600">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
-      </section>
-    </FadeIn>
+
+        {faqs.map((faq, index) => (
+          <div
+            key={index}
+            className="mb-4 rounded-2xl border border-gray-200 overflow-hidden"
+          >
+            <button
+              type="button"
+              onClick={() => setOpen(open === index ? null : index)}
+              className="w-full flex justify-between items-center p-6 text-left font-semibold"
+            >
+              <span>{faq.question}</span>
+
+              <ChevronDown
+                className={`transition-transform ${
+                  open === index ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {open === index && (
+              <div className="px-6 pb-6 text-gray-600">
+                {faq.answer}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

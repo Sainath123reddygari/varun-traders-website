@@ -35,9 +35,18 @@ export default async function FeaturedProducts() {
               <Link
                 key={product.id}
                 href={`/products/${product.slug}`}
-                className="group block bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+                className="group block bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="relative h-64 overflow-hidden">
+
+                  <span className="absolute top-4 left-4 z-10 bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Best Seller
+                  </span>
+
+                  <span className="absolute top-4 right-4 z-10 bg-white text-green-700 text-xs font-bold px-3 py-1 rounded-full shadow">
+                    🌿 Biodegradable
+                  </span>
+
                   <Image
                     src={product.images?.[0] || "/placeholder.png"}
                     alt={product.name}
@@ -47,7 +56,8 @@ export default async function FeaturedProducts() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-green-700 group-hover:text-green-800 transition-colors">
+
+                  <h3 className="text-2xl font-bold text-gray-900">
                     {product.name}
                   </h3>
 
@@ -55,11 +65,18 @@ export default async function FeaturedProducts() {
                     {product.description}
                   </p>
 
-                  <div className="mt-6">
-                    <span className="inline-flex items-center justify-center w-full bg-green-700 text-white py-3 rounded-xl font-semibold group-hover:bg-green-800 transition">
-                      View Product →
+                  <div className="mt-6 flex justify-between items-center">
+
+                    <span className="text-green-700 font-bold">
+                      Premium Quality
                     </span>
+
+                    <span className="bg-green-700 text-white px-5 py-2 rounded-xl group-hover:bg-green-800 transition">
+                      View →
+                    </span>
+
                   </div>
+
                 </div>
               </Link>
             ))}

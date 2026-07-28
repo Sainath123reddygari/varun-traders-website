@@ -1,79 +1,88 @@
-export default function WhyChooseUs() {
-  const features = [
-    {
-      icon: "🛡️",
-      title: "Superior Protection",
-      desc: "Protects fruits from insects, birds, dust and harsh weather.",
-    },
-    {
-      icon: "🌿",
-      title: "100% Biodegradable",
-      desc: "Eco-friendly paper that naturally decomposes without harming the environment.",
-    },
-    {
-      icon: "💧",
-      title: "Water Resistant",
-      desc: "Designed to withstand rain and moisture while maintaining airflow.",
-    },
-    {
-      icon: "⭐",
-      title: "Premium Quality",
-      desc: "Made with high-quality 45 GSM paper for long-lasting performance.",
-    },
-    {
-      icon: "📈",
-      title: "Higher Market Value",
-      desc: "Cleaner, healthier fruits help farmers achieve better selling prices.",
-    },
-    {
-      icon: "🤝",
-      title: "Farmer Support",
-      desc: "Dedicated support before and after every purchase.",
-    },
-  ];
+import {
+  Award,
+  Leaf,
+  ShieldCheck,
+  Truck,
+  Users,
+  BadgeCheck,
+} from "lucide-react";
 
+const items = [
+  {
+    icon: Award,
+    title: "Premium Quality",
+    text: "Manufactured using high-quality materials for long-lasting protection.",
+  },
+  {
+    icon: Leaf,
+    title: "100% Biodegradable",
+    text: "Eco-friendly products that are safe for farmers and the environment.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Superior Protection",
+    text: "Protects fruits from insects, birds, dust, rain and sun damage.",
+  },
+  {
+    icon: Truck,
+    title: "Fast Delivery",
+    text: "Reliable delivery across India.",
+  },
+  {
+    icon: Users,
+    title: "Farmer Trusted",
+    text: "Helping farmers improve fruit quality and increase market value.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Excellent Support",
+    text: "Dedicated assistance before and after your purchase.",
+  },
+];
+
+export default function WhyChooseUs() {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
-          <span className="text-green-700 uppercase tracking-widest font-semibold">
+          <span className="uppercase tracking-widest text-green-700 font-semibold">
             Why Choose Us
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Why Farmers Trust Varun Traders
+          <h2 className="mt-4 text-4xl md:text-5xl font-bold">
+            Trusted Agricultural Solutions
           </h2>
 
-          <p className="mt-5 max-w-3xl mx-auto text-gray-600 text-lg">
-            We manufacture premium biodegradable fruit protection covers
-            designed to improve fruit quality while reducing losses caused by
-            pests and environmental damage.
+          <p className="mt-5 text-gray-600 max-w-3xl mx-auto">
+            We manufacture premium fruit protection covers that help farmers
+            produce healthier fruits with better quality and higher market value.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {items.map((item) => {
+            const Icon = item.icon;
 
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-3xl border border-gray-100 bg-gray-50 p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
-            >
-              <div className="text-5xl mb-6">
-                {feature.icon}
+            return (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-gray-100 bg-gray-50 p-8 hover:bg-green-700 hover:text-white transition-all duration-300 shadow-lg"
+              >
+                <Icon size={42} />
+
+                <h3 className="mt-6 text-2xl font-bold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 opacity-90">
+                  {item.text}
+                </p>
               </div>
-
-              <h3 className="text-2xl font-bold text-green-700">
-                {feature.title}
-              </h3>
-
-              <p className="mt-4 text-gray-600 leading-7">
-                {feature.desc}
-              </p>
-            </div>
-          ))}
-
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import FarmerEnquiryForm from "@/components/FarmerEnquiryForm";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import RelatedProducts from "@/components/RelatedProducts";
+import ProductHighlights from "@/components/ProductHighlights";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -60,6 +61,8 @@ export default async function ProductPage({
       <section className="max-w-7xl mx-auto px-6 py-12">
         <ProductSpecs specs={product.specs} />
       </section>
+
+      <ProductHighlights />
 
       <section className="max-w-7xl mx-auto px-6 py-12">
         <ProductBenefits />

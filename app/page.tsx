@@ -18,6 +18,7 @@ import TrustedSection from "@/components/TrustedSection";
 import HowItWorks from "@/components/HowItWorks";
 import AboutSection from "@/components/AboutSection";
 import ContactCTA from "@/components/ContactCTA";
+import Comparison from "@/components/Comparison";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <TrustedSection />
         <About />
         <WhyChooseUs />
+        <Comparison />
         <HowItWorks />
         <AboutSection />
         <Process />
