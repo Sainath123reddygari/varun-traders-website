@@ -1,6 +1,5 @@
 import BackToTop from "@/components/BackToTop";
 import QuoteButton from "@/components/QuoteButton";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Products from "@/components/Products";
@@ -23,7 +22,6 @@ import ContactCTA from "@/components/ContactCTA";
 export default function Home() {
   return (
     <>
-      <Navbar />
 
       <main className="pt-0">
         <Hero />
