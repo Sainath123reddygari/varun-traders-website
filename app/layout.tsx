@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import FloatingWhatsApp from "../components/FloatingWhatsapp";
 import Navbar from "@/components/Navbar";
+import FloatingContact from "@/components/FloatingContact";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Navbar />
         {children}
+        <FloatingContact />
         <FloatingWhatsApp />
       </body>
     </html>
